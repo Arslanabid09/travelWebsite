@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #080707;
+    color: white;
+    font-family: 'Roboto', sans-serif; /* Consistent font family */
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+nav h1 {
+    letter-spacing: 0.3rem;
+    font-weight: bolder;
+    font-size: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+justify-content: center;
+    list-style: none;
+    gap: 3rem;
+}
+
+nav ul li {
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    &:hover{
+        border-bottom: 2px solid white;
+        transition: 0.5s;
+        color: rgb(160, 19, 19);
+    }
+}
+nav .hamburger {
+    display: none;
+    color: white;
+    font-size: 1.3rem;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden; 
+    background: rgba(255, 0, 0, 0.425);
+}
+
+section .text-context {
+    position: relative; 
+    top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 70%;
+    margin: 0 auto;
+    z-index: 1; 
+}
+section .text-context h1 {
+    font-size:4rem;
+}
+section .text-context .explore {
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+section .text-context h1 span {
+    font-size: 5rem;
+    color: rgb(160, 19, 19);
+    border-bottom: 4px solid white;
+}
+
+section .text-context h2 {
+    font-size: 3.5rem;
+    position: relative;
+    right: 5rem;
+}
+
+section .text-context .promo {
+    font-size: larger;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+}
+section .text-context p {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-top: 0.8rem;
+}
+section .text-context .input{
+    display: flex;
+    margin-top: 0.9rem;
+
+}
+section .text-context input {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    width: 30rem;
+}
+
+section .text-context button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    background-color: rgb(160, 19, 19);
+    color: white;
+    cursor: pointer;
+}
+
+section .img-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./imgs/pexels-timon-reinhard-1577192467-27308308.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Background image is behind the text */
+}  
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+section .text-context h2,
+section .text-context h1,
+section .text-context p {
+    opacity: 0;
+    animation: fadeInLeft 1s ease-in-out forwards;
+    animation-delay: 0.2s;
+}
+ section .text-context input, 
+ section .text-context button {
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.4s;
+} 
+
+section .img-content {
+    opacity: 0;
+    animation: fadeInRight 1s forwards;
+    animation-delay: 0.2s;
+}
+
+/* Responsive design */
+@media (max-width: 915px) {
+    section .text-context {
+        position: relative; /* Keeps text-context on top of the background image */
+        max-width: 100%;
+        margin: 0 auto;
+        z-index: 1; 
+        padding: 2rem 1rem;
+    }
+
+    section .text-context h1 {
+        font-size: 3rem;
+    }
+
+    section .text-context .explore {
+        font-size: large;
+    }
+
+    section .text-context h1 span {
+        font-size: 3.5rem;
+    }
+
+    section .text-context h2 {
+        font-size: 2.5rem;
+    }
+
+    section .text-context .promo {
+        font-size: larger;
+    }
+
+    section .text-context p {
+        font-size: 1rem;
+    }
+
+    section .text-context input {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    section .text-context button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    
+}
+
+@media (max-width: 706px) { 
+    
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}   
+    nav .logo h1 {
+        letter-spacing: 0.1rem;
+        font-weight: bold;
+        font-size: 1.8rem;
+    }
+    
+    nav ul {
+        display: none;
+        justify-content: left;
+        flex-direction: column; 
+        list-style: none;
+        gap: 2rem;
+        margin-top: 3rem;
+        padding-left: 0; 
+    }
+    
+    nav ul li {
+        color: white;
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        cursor: pointer;
+        padding: 0.5rem 0;
+        text-align: left;
+    }
+    
+    nav .hamburger {
+        display: flex;
+        color: white;
+        font-size: 1.3rem;
+    }
+    nav ul.show {
+        display: flex;
+    }
+    nav .hamburger .cancle {
+        display: none;
+    }
+    section .text-context h1 {
+        font-size: 3rem;
+    }
+
+    section .text-context .explore {
+        font-size: large;
+    }
+
+    section .text-context h1 span {
+        font-size: 3.5rem;
+    }
+
+    section .text-context h2 {
+        font-size: 2.5rem;
+    }
+
+    section .text-context .promo {
+        font-size: larger;
+    }
+
+    section .text-context p {
+        font-size: 1rem;
+    }
+
+    section .text-context input {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    section .text-context button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+  
+}
+
+@media (max-width:498px){
+    /* Responsive design */
+    section .text-context h1 {
+        font-size: 2rem;
+    }
+
+    section .text-context .explore {
+        font-size: small;
+    }
+
+    section .text-context h1 span {
+        font-size: 2.5rem;
+    }
+
+    section .text-context h2 {
+        font-size: 1.7rem;
+        margin-top: 0.4rem;
+    }
+
+    section .text-context .promo {
+        font-size: smaller;
+    }
+
+    section .text-context p {
+        font-size: 0.6rem;
+    }
+
+    section .text-context input {
+        padding: 1rem 3rem;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    section .text-context button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
